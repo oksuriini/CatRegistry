@@ -5,10 +5,15 @@ Simple API to register cats and fetch them. This API supports only MongoDB type 
 Uses envars:
 
 `MONGODB_URI`, uri for the MongoDB, defaults to "127.0.0.1"
+
 `MONGODB_PORT`, port that MongoDB exposes, defaults to "27017"
+
 `HOSTNAME`, hostname for the API, defaults to "127.0.0.1"
+
 `HOSTPORT`, port that API exposes, defaults to "8080"
+
 `USERNAME`, username to authenticate for database, default not provided
+
 `PASSWORD`, password for the authenticating username, default not provided
 
 ## Endpoints:
