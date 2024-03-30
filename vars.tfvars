@@ -1,1 +1,1 @@
-namespace = "flux-system"
+namespace = "default"
