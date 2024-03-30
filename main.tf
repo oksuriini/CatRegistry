@@ -1,11 +1,17 @@
+provider "kubernetes" {
+  config_path    = "~/.kube/config"
+  config_context = "minikube"
+}
+
 terraform {
   required_providers {
     kubernetes = {
-      version = ">= 2.27.0"
       source  = "hashicorp/kubernetes"
+      version = "~> 2.27.0"
     }
   }
 }
+
 resource "kubernetes_deployment" "cats" {
   metadata {
     name = "catregistry-deployment"
