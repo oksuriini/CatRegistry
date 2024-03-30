@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    kubernetes = {
+      version = ">= 2.27.0"
+      source  = "hashicorp/kubernetes"
+    }
+  }
+}
 resource "kubernetes_deployment" "cats" {
   metadata {
     name = "catregistry-deployment"
