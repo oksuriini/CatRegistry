@@ -33,7 +33,7 @@ resource "kubernetes_deployment" "cats" {
       spec {
         container {
           name  = "cat-container"
-          image = "oksuriini/catregistry:0.1"
+          image = "oksuriini/catregistry:main"
           env {
             name  = "MONGODB_URI"
             value = "mongodb-service"
