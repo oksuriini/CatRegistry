@@ -2,6 +2,11 @@
 
 Simple API to register cats and fetch them. This API supports only MongoDB type database.
 
+Available on Dockerhub from:
+
+- image: oksuriini/catregistry
+- tags: `main` or `nightly`
+
 Uses envars:
 
 `MONGODB_URI`, uri for the MongoDB, defaults to "127.0.0.1"
