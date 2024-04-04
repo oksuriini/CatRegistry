@@ -10,7 +10,7 @@ terraform {
 resource "kubernetes_deployment" "cats" {
   metadata {
     name      = "catregistry-deployment"
-    namespace = "default"
+    namespace = var.namespace
   }
   spec {
     replicas = 3
@@ -23,7 +23,7 @@ resource "kubernetes_deployment" "cats" {
     }
     template {
       metadata {
-        namespace = "default"
+        namespace = var.namespace
         labels = {
           app  = "catregistry"
           tier = "backend"
@@ -50,7 +50,7 @@ resource "kubernetes_deployment" "cats" {
 resource "kubernetes_stateful_set" "mongodb" {
   metadata {
     name      = "mongodb-deployment"
-    namespace = "default"
+    namespace = var.namespace
   }
   spec {
     service_name = "mongodb-serv"
@@ -64,7 +64,7 @@ resource "kubernetes_stateful_set" "mongodb" {
     }
     template {
       metadata {
-        namespace = "default"
+        namespace = var.namespace
         labels = {
           app  = "catregistry"
           tier = "backend"
@@ -88,7 +88,7 @@ resource "kubernetes_stateful_set" "mongodb" {
 resource "kubernetes_service" "backend" {
   metadata {
     name      = "mongodb-service"
-    namespace = "default"
+    namespace = var.namespace
   }
   spec {
     selector = {
@@ -106,7 +106,7 @@ resource "kubernetes_service" "backend" {
 resource "kubernetes_service" "goback" {
   metadata {
     name      = "gobackend-service"
-    namespace = "default"
+    namespace = var.namespace
   }
   spec {
     type = "NodePort"
