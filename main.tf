@@ -33,7 +33,7 @@ resource "kubernetes_deployment" "cats" {
       spec {
         container {
           name  = "cat-container"
-          image = "oksuriini/catregistry:0.1"
+          image = "oksuriini/catregistry:main"
           env {
             name  = "MONGODB_URI"
             value = "mongodb-service"
@@ -75,9 +75,29 @@ resource "kubernetes_stateful_set" "mongodb" {
         container {
           name  = "mongodb-container"
           image = "mongo"
+          args  = ["--dbpath", "/data/db"]
           port {
             container_port = 27017
             name           = "mongodb"
+          }
+          volume_mount {
+            name       = "mongodb-volume"
+            mount_path = "/data/db"
+          }
+        }
+
+      }
+    }
+    volume_claim_template {
+      metadata {
+        name      = "mongodb-volume"
+        namespace = var.namespace
+      }
+      spec {
+        access_modes = ["ReadWriteMany"]
+        resources {
+          requests = {
+            storage = "2Gi"
           }
         }
       }
