@@ -1,6 +1,6 @@
 # Cat Registry App
 
-Simple API to register cats and fetch them. This API supports only MongoDB type database.
+Simple API to register cats and fetch them. This API supports only MongoDB type database. test
 
 Uses envars:
 
