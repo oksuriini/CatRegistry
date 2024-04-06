@@ -34,7 +34,7 @@ resource "kubernetes_deployment" "cats" {
         container {
           image_pull_policy = "Always"
           name              = "cat-container"
-          image             = "oksuriini/catregistry:main"
+          image             = "oksuriini/catregistry:v0.0.1"
           env {
             name  = "MONGODB_URI"
             value = "mongodb-service"
