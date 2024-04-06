@@ -12,6 +12,8 @@ FROM alpine:3.19 AS run-stage
 
 WORKDIR /
 
+RUN touch example.txt
+
 COPY --from=build-stage /cats /cats
 
 EXPOSE 8080
