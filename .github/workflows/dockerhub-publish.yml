@@ -24,6 +24,7 @@ env:
 
 jobs:
   push_to_docker_hub:
+    environment: Dockerhub secrets
     name: Push image to docker hub
     runs-on: ubuntu-latest
     steps:
